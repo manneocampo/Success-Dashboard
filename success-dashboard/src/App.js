@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
+// import ReactDOM from 'react-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './App.css';
 import { Navbar } from './components/Navbar.js';
 import {Trivia} from './components/MainDash/Trivia.js';
@@ -9,18 +10,20 @@ import {TechArticles} from './components/MainDash/TechArticles.js';
 import {MeetupFeed} from './components/MainDash/MeetupFeed.js';
 import {ToDoList} from './components/MainDash/ToDoList.js';
 
-
 export const App = () => {
   return (
-  	<div>
-  		<Navbar />
-  		<Trivia />
-  		<GoodVibesNews />
-  		<TechArticles />
-  		<MeetupFeed />
-  		<ToDoList />
-  		<CreateNote />
-  	</div>
+    <MuiThemeProvider>
+    	<div>
+    		<Navbar />
+    		<Trivia />
+    		<GoodVibesNews />
+    		<TechArticles />
+    		<MeetupFeed />
+    		<ToDoList />
+    		<CreateNote />
+    	</div>
+    </MuiThemeProvider>
+
   	);
 
 };

@@ -1,9 +1,10 @@
 import React from 'react';
+import {StyleCreateNote} from './DashStyles/CreateNote.js';
 
 
 export const CreateNote = () => {
 	return (
-		<form>
+		<StyleCreateNote>
 			<div>
 				<h3>Create A Note</h3>
 			</div>
@@ -12,6 +13,6 @@ export const CreateNote = () => {
 				</textarea>
 			</div>
 			<button type="submit" class="btn btn-default">Add Note</button>
-		</form>
+		</StyleCreateNote>
 		)
 };

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-StyleCreateNote
 
 export const StyleNavbar = styled.ul`
 
@@ -15,4 +14,4 @@ export const StyleNavbar = styled.ul`
 	  	font-size: 18px;
 	    padding: 0 10px;
     }
-` 
+`

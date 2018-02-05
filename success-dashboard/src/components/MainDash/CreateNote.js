@@ -1,10 +1,11 @@
 import React from 'react';
 
+
 export const CreateNote = () => {
 	return (
 		<form>
 			<div>
-				<h3> Create A Note</h3>
+				<h3>Create A Note</h3>
 			</div>
 			<div>
 				<textarea class="form-control" rows="3">
@@ -14,5 +15,3 @@ export const CreateNote = () => {
 		</form>
 		)
 };
-
-			// <input type="text" class="form-control" placeholder="Text input">

@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+StyleCreateNote
+
 export const StyleNavbar = styled.ul`
 
 	list-style: none;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 // import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './App.css';
@@ -10,16 +11,19 @@ import {TechArticles} from './components/MainDash/TechArticles.js';
 import {MeetupFeed} from './components/MainDash/MeetupFeed.js';
 import {ToDoList} from './components/MainDash/ToDoList.js';
 
+// Pages
+import Landing from './components/pages/Landing';
+import Dashboard from './components/pages/Dashboard';
+import NoteManager from './components/pages/NoteManager';
 
 //******Still need to create these container components named below***********
 export const App = () =>
-  <Router>
     <div>
       <Route exact path="/" component={Landing} />
-      <Route exact path="/dashboard" component={Dashboard} />
-      <Route exact path="/notes" component={NoteManager} />
+      <Route path='/app' component={Navbar} />
+      <Route exact path="/app/dashboard" component={Dashboard} />
+      <Route exact path="/app/notes" component={NoteManager} />
     </div>
-  </Router>;
 
 
 // export const App = () => {
@@ -39,6 +43,3 @@ export const App = () =>
 //   	);
 
 // };
-
-
-

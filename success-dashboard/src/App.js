@@ -16,7 +16,6 @@ import Landing from './components/pages/Landing';
 import Dashboard from './components/pages/Dashboard';
 import NoteManager from './components/pages/NoteManager';
 
-//******Still need to create these container components named below***********
 export const App = () =>
     <div>
       <Route exact path="/" component={Landing} />
@@ -24,22 +23,3 @@ export const App = () =>
       <Route exact path="/app/dashboard" component={Dashboard} />
       <Route exact path="/app/notes" component={NoteManager} />
     </div>
-
-
-// export const App = () => {
-//   return (
-//     <MuiThemeProvider>
-//     	<div>
-//     		<Navbar />
-//     		<Trivia />
-//     		<GoodVibesNews />
-//     		<TechArticles />
-//     		<MeetupFeed />
-//     		<ToDoList />
-//     		<CreateNote />
-//     	</div>
-//     </MuiThemeProvider>
-
-//   	);
-
-// };

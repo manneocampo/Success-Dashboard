@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './App.css';
-import { Navbar } from './components/Navbar.js';
+import Navbar from './components/Navbar';
 import Landing from './components/pages/Landing';
 import Dashboard from './components/pages/Dashboard';
 import NoteManager from './components/pages/NoteManager';
 import SignUp from './components/pages/SignUp';
-
+import NotFound from './components/NotFound';
 // Utilities
 import axios from 'axios';
-//******Still need to create these container components named below***********
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -82,6 +82,7 @@ export default class App extends Component {
         <Route path='/app' component={Navbar} />
         <Route exact path="/app/dashboard" component={Dashboard} />
         <Route exact path="/app/notes" component={NoteManager} />
+        <Route path="*" component={NotFound} />
       </div>
     )
   }

@@ -43,6 +43,3 @@ app.get("*", function(req, res) {
 app.listen(PORT, () => {
 	console.log(`App listening on PORT: ${PORT}`);
 });
-
-// google client id: 155017138163-lapght4pn915qcn24ha85h9tm2te2ihq.apps.googleusercontent.com
-// secret: HDjItQ9jJbyg5XWpY1WG-_A1

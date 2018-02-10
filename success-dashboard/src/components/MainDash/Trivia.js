@@ -1,6 +1,7 @@
 import React from 'react';
 import './Trivia.css';
 
+
 export default class Trivia extends React.Component {
 	constructor(props) {
 		super(props);

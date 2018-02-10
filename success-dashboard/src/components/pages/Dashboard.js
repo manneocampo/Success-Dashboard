@@ -1,6 +1,16 @@
 import React from 'react';
 import Trivia from '../MainDash/Trivia';
 import { API } from '../../utils/API';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Paper from 'material-ui/Paper';
+
+const style = {
+  height: 300,
+  width: 1500,
+  margin: 20,
+  textAlign: 'center',
+  display: 'inline-block',
+};
 
 export default class Dashboard extends React.Component {
   constructor(props) {
@@ -24,9 +34,15 @@ export default class Dashboard extends React.Component {
 
   render() {
     return (
+
   		  <div>
-          <Trivia data={this.state.trivia} />
+          <MuiThemeProvider>
+            <Paper style={style} zDepth={5} >
+            <Trivia data={this.state.trivia} />
+          </Paper>
+          </MuiThemeProvider>
         </div>
+
   	)
   }
 };

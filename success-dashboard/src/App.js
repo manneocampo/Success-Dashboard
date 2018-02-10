@@ -6,15 +6,15 @@ import { Navbar } from './components/Navbar.js';
 
 
 // Pages
+
 import Landing from './components/pages/Landing';
 import Dashboard from './components/pages/Dashboard';
 import NoteManager from './components/pages/NoteManager';
 import SignUp from './components/pages/SignUp';
-
+import NotFound from './components/NotFound';
 // Utilities
 import axios from 'axios';
 
-//******Still need to create these container components named below***********
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -86,27 +86,8 @@ export default class App extends Component {
         <Route path='/app' component={Navbar} />
         <Route exact path="/app/dashboard" component={Dashboard} />
         <Route exact path="/app/notes" component={NoteManager} />
+        <Route path="*" component={NotFound} />
       </div>
     )
   }
 }
-
-
-
-// export const App = () => {
-//   return (
-//     <MuiThemeProvider>
-//     	<div>
-//     		<Navbar />
-//     		<Trivia />
-//     		<GoodVibesNews />
-//     		<TechArticles />
-//     		<MeetupFeed />
-//     		<ToDoList />
-//     		<CreateNote />
-//     	</div>
-//     </MuiThemeProvider>
-
-//   	);
-
-// };

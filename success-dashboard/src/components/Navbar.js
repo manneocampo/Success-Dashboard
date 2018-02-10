@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 //Note the Navbar was done as an example to demonstrate styled-components but we can switch this out for Bootstrap or something else later if we want.
 
-export const Navbar = () => {
+const Navbar = () => {
 	return (
 		<StyleNavbar>
 			<li><Link to='/app/dashboard'>Home</Link></li>
@@ -13,3 +13,5 @@ export const Navbar = () => {
 		</StyleNavbar>
 		)
 };
+
+export default Navbar;

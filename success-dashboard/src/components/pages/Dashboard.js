@@ -39,7 +39,7 @@ export default class Dashboard extends React.Component {
           <MuiThemeProvider>
             <Paper style={style} zDepth={5} >
             <Trivia data={this.state.trivia} />
-          </Paper>
+            </Paper>
           </MuiThemeProvider>
         </div>
 

@@ -4,6 +4,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session)
 const dbConnection = require('./db') // loads our connection to the mongo database
 const passport = require('./passport');
+const request = require('request');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -26,6 +27,14 @@ app.use(passport.session()); // will call the deserializeUser
 
 /* Express app ROUTING */
 app.use('/auth', require('./auth'));
+
+app.get('/trivia', (req, res) => {
+	request.get('https://opentdb.com/api.php?amount=1&category=18&difficulty=easy&type=multiple', (err, response, body) => {
+		if (err) throw err;
+
+		res.send(body);
+	})
+});
 
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./public/index.html"));

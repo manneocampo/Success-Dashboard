@@ -3,12 +3,7 @@ import { Route } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './App.css';
 import { Navbar } from './components/Navbar.js';
-import {Trivia} from './components/MainDash/Trivia.js';
-import {CreateNote} from './components/MainDash/CreateNote.js';
-import {GoodVibesNews} from './components/MainDash/GoodVibesNews.js';
-import {TechArticles} from './components/MainDash/TechArticles.js';
-import {MeetupFeed} from './components/MainDash/MeetupFeed.js';
-import {ToDoList} from './components/MainDash/ToDoList.js';
+
 
 // Pages
 import Landing from './components/pages/Landing';

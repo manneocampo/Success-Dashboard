@@ -82,7 +82,7 @@ export default class App extends Component {
         <Route path='/app' component={Navbar} />
         <Route exact path="/app/dashboard" component={Dashboard} />
         <Route exact path="/app/notes" component={NoteManager} />
-        <Route path="*" component={NotFound} />
+        <Route path='/notFound' component={NotFound} />
       </div>
     )
   }

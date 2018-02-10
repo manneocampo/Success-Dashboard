@@ -35,15 +35,16 @@ export default class Dashboard extends React.Component {
 
   render() {
     return (
-
-  		  <div>
+        <div>
           <MuiThemeProvider>
             <Paper style={style} zDepth={5} >
             <Trivia data={this.state.trivia} />
             </Paper>
           </MuiThemeProvider>
         </div>
-
+  	);
+  }
+};
 
 // import { Route } from 'react-router-dom';
 // import ReactDOM from 'react-dom';
@@ -69,8 +70,3 @@ export default class Dashboard extends React.Component {
 // 	    		<CreateNote />
 // 	    	</div>
 //     	</MuiThemeProvider>
-  	)
-  }
-};
-
-export default Dashboard;

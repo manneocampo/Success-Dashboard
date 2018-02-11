@@ -1,18 +1,20 @@
 import React from 'react';
-import {StyleCreateNote} from './DashStyles/CreateNote.js';
+import Paper from 'material-ui/Paper';
 
-
-export const CreateNote = () => {
-	return (
-		<StyleCreateNote>
-			<div>
-				<h3>Create A Note</h3>
-			</div>
-			<div>
-				<textarea class="form-control" rows="3">
-				</textarea>
-			</div>
-			<button type="submit" class="btn btn-default">Add Note</button>
-		</StyleCreateNote>
-		)
+const style = {
+  height: 300,
+  width: 500,
+  margin: 20,
+  textAlign: 'center',
+  display: 'inline-block',
 };
+
+export const CreateNote = () => (
+    <Paper style={style} zDepth={5} rounded={false}>
+			<h3>Create A Note</h3>
+			<textarea>
+			</textarea>
+			<button>Add Note</button>
+  	</Paper>
+);
+

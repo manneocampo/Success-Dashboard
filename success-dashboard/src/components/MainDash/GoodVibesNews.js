@@ -1,9 +1,17 @@
 import React from 'react';
+import Paper from 'material-ui/Paper';
 
-export const GoodVibesNews = () => {
-	return (
-		<div>
-			<h2>This section will contain GoodVibesNews</h2>
-		</div>
-		)
+const style = {
+  height: 300,
+  width: 300,
+  margin: 20,
+  textAlign: 'center',
+  display: 'inline-block',
 };
+
+export const GoodVibesNews = () => (
+    <Paper style={style} zDepth={5} rounded={false}>
+    	<h2>GoodVibes</h2>
+  	</Paper>
+);
+

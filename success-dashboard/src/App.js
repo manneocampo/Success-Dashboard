@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'; //Looks like not needed since not used in App.js?
 import './App.css';
 import Navbar from './components/Navbar';
 import Landing from './components/pages/Landing';

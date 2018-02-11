@@ -1,4 +1,7 @@
-.App {
+/* I think we can delete this file since we'll be using styled-components
+/*Be sure to delete any routes this point here, it will error out
+
+/*.App {
   border: 2px solid black;
   background: #f5f5f5;
   color: #333;
@@ -34,3 +37,4 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+*/

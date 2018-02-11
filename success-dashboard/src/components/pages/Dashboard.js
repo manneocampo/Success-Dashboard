@@ -7,7 +7,7 @@ import {GoodVibesNews} from '../MainDash/GoodVibesNews.js';
 import {TechArticles} from '../MainDash/TechArticles.js';
 import {MeetupFeed} from '../MainDash/MeetupFeed.js';
 import {ToDoList} from '../MainDash/ToDoList.js';
-import {CreateNote} from '../MainDash/CreateNote.js';
+import CreateNote from '../MainDash/CreateNote.js';
 
 
 const style = {

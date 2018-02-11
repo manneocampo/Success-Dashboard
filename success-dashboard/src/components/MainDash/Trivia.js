@@ -16,8 +16,6 @@ export default class Trivia extends React.Component {
 	}
 
 	renderAnswers() {
-		console.log('state: ', this.state);
-		console.log('props: ', this.props);
 		if (!this.props.data[0]) {
 			return;
 		}
@@ -58,9 +56,13 @@ export default class Trivia extends React.Component {
 
 
 	render() {
+		if (!this.props.data[0]) {
+			return null;
+		}
 		let question = this.props.data[0] && this.props.data[0].question ? this.props.data[0].question : '';
 		let answers = this.renderAnswers();
 		let answeredCorrect = this.props.data[0] && this.props.data[0].correct_answer === this.state.selectedAnswer;
+		let selectedAnswerCurrent = this.props.data[0].incorrect_answers.indexOf(this.state.selectedAnswer) > -1 || this.state.selectedAnswer === this.props.data[0].correct_answer;
 
 		return (
 			<div className='trivia'>
@@ -74,7 +76,7 @@ export default class Trivia extends React.Component {
 				{answeredCorrect &&
 					<p>Correct!</p>
 				}
-				{this.state.selectedAnswer && !answeredCorrect &&
+				{this.state.selectedAnswer && !answeredCorrect && selectedAnswerCurrent &&
 					<p>Incorrect!</p>
 				}
 			</div>

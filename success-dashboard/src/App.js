@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './App.css';
 import Navbar from './components/Navbar';
@@ -82,7 +82,7 @@ export default class App extends Component {
         <Route path='/app' component={Navbar} />
         <Route exact path="/app/dashboard" component={Dashboard} />
         <Route exact path="/app/notes" component={NoteManager} />
-        <Route path='/notFound' component={NotFound} />
+        <Route path="/notfound" component={NotFound} />
       </div>
     )
   }

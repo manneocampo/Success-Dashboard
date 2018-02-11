@@ -1,9 +1,8 @@
-/* I think we can delete this file since we'll be using styled-components
-/*Be sure to delete any routes this point here, it will error out
+/* I think we can delete this file since we'll be using styled-componentsBe sure to delete any routes this point here, it will error out
 
-/*.App {
+.App {
   border: 2px solid black;
-  background: #f5f5f5;
+  background: linear-gradient(red, yellow);
   color: #333;
   margin: 20px;
   padding: 20px; 

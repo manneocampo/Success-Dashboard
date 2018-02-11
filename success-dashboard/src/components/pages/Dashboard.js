@@ -40,22 +40,22 @@ export default class Dashboard extends React.Component {
 
   render() {
     return (
-        <div>
           <MuiThemeProvider>
             <Paper style={style} zDepth={5}>
             <Trivia data={this.state.trivia} />
             </Paper>
-            <div style={{justifyContent: 'center', flexDirection: 'row'}}>
+            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'flex-start'}}>
               <GoodVibesNews />
               <TechArticles />
               <MeetupFeed />
             </div>
-            <div style={{justifyContent: 'center', flexDirection: 'row'}}>
+            <br />
+            <br />
+            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'flex-start'}}>
               <ToDoList />
               <CreateNote />
             </div>
           </MuiThemeProvider>
-        </div>
   	);
   }
 };

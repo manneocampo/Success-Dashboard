@@ -9,12 +9,33 @@ const style = {
   display: 'inline-block',
 };
 
-export const CreateNote = () => (
-    <Paper style={style} zDepth={5} rounded={false}>
-			<h3>Create A Note</h3>
-			<textarea>
-			</textarea>
-			<button>Add Note</button>
-  	</Paper>
-);
+export default class CreateNote extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
 
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log(this.state.value);
+  }
+
+  render() {
+    return (
+      <Paper style={style} zDepth={5} rounded={false}>
+        <h3>Create a Note</h3>
+        <form onSubmit={this.handleSubmit}>
+          <textarea rows="20" type="text" value={this.state.value} onChange={this.handleChange} />
+          <input type="submit" value="Add Note" />
+        </form>
+      </Paper>
+    );
+  }
+}

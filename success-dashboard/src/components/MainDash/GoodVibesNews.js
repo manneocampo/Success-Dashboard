@@ -9,9 +9,25 @@ const style = {
   display: 'inline-block',
 };
 
-export const GoodVibesNews = () => (
-    <Paper style={style} zDepth={5} rounded={false}>
-    	<h2>GoodVibes</h2>
-  	</Paper>
-);
+export default class GoodVibesNews extends React.Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+
+    }
+  }
+
+  render() {
+    console.log('this props: ', this.props);
+    return (
+      <Paper style={style} zDepth={5} rounded={false}>
+      	{this.props.news.map((story, i) => (
+          <div>
+            <a target='_blank' href={story.data.url}><p>{story.data.title}</p></a>
+          </div>
+        ))}
+    	</Paper>
+    );
+  }
+}

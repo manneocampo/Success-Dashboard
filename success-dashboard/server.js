@@ -37,6 +37,14 @@ app.get('/trivia', (req, res) => {
 	})
 });
 
+app.get('/news', (req, res) => {
+	request.get('https://www.reddit.com//r/aww.json', (err, response, body) => {
+		if (err) throw err;
+
+		res.send(body);
+	});
+});
+
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./public/index.html"));
 });

@@ -26,9 +26,15 @@ export default class Dashboard extends React.Component {
     this.state = {
       trivia: []
     }
+
+    this.refresh = this.refresh.bind(this);
   }
 
   componentDidMount() {
+    this.refresh();
+  }
+
+  refresh() {
     API.getTriviaQuestion()
     .then((res) => {
       console.log('res: ', res.data.results)
@@ -44,7 +50,7 @@ export default class Dashboard extends React.Component {
         <div>
           <MuiThemeProvider>
             <Paper style={style} zDepth={5}>
-            <Trivia data={this.state.trivia} />
+            <Trivia refresh={this.refresh} data={this.state.trivia} />
             </Paper>
             <div style={{justifyContent: 'center', flexDirection: 'row'}}>
               <GoodVibesNews />

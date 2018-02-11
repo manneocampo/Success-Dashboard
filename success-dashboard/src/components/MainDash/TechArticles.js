@@ -3,7 +3,7 @@ import Paper from 'material-ui/Paper';
 
 const style = {
   height: 300,
-  width: 300,
+  width: 'calc(33% - 40px)',
   margin: 20,
   textAlign: 'center',
   display: 'inline-block',
@@ -14,4 +14,3 @@ export const TechArticles = () => (
     	<h2>TechArticles</h2>
   	</Paper>
 );
-

@@ -3,21 +3,12 @@ import Trivia from '../MainDash/Trivia';
 
 import { API } from '../../utils/API';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Paper from 'material-ui/Paper';
+
 import GoodVibesNews from '../MainDash/GoodVibesNews.js';
 import {TechArticles} from '../MainDash/TechArticles.js';
 import MeetupFeed from '../MainDash/MeetupFeed.js';
 import {ToDoList} from '../MainDash/ToDoList.js';
 import CreateNote from '../MainDash/CreateNote.js';
-
-
-const style = {
-  height: 300,
-  width: 1500,
-  margin: 20,
-  textAlign: 'center',
-  display: 'inline-block',
-};
 
 export default class Dashboard extends React.Component {
   constructor(props) {
@@ -57,15 +48,13 @@ export default class Dashboard extends React.Component {
     return (
         <div>
           <MuiThemeProvider>
-            <Paper style={style} zDepth={5}>
             <Trivia refresh={this.refresh} data={this.state.trivia} />
-            </Paper>
-            <div style={{justifyContent: 'center', flexDirection: 'row'}}>
+            <div style={{justifyContent: 'center', flexDirection: 'row', display: 'flex'}}>
               <GoodVibesNews news={this.state.news} />
               <TechArticles />
               <MeetupFeed />
             </div>
-            <div style={{justifyContent: 'center', flexDirection: 'row'}}>
+            <div style={{justifyContent: 'center', flexDirection: 'row', display: 'flex'}}>
               <ToDoList />
               <CreateNote />
             </div>

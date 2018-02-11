@@ -1,7 +1,15 @@
 import React from 'react';
 import './Trivia.css';
 import FlatButton from 'material-ui/FlatButton';
+import Paper from 'material-ui/Paper';
 
+const style = {
+  height: 300,
+  width: '100%',
+  margin: 20,
+  textAlign: 'center',
+  display: 'inline-block',
+};
 
 export default class Trivia extends React.Component {
 	constructor(props) {
@@ -65,20 +73,24 @@ export default class Trivia extends React.Component {
 		let selectedAnswerCurrent = this.props.data[0].incorrect_answers.indexOf(this.state.selectedAnswer) > -1 || this.state.selectedAnswer === this.props.data[0].correct_answer;
 
 		return (
-			<div className='trivia'>
-				<h3>Trivia</h3>
-				<div className='question'>
-					{question}
-				</div>
-				<div className='answers'>
-					{answers}
-				</div>
-				{answeredCorrect &&
-					<p>Correct!</p>
-				}
-				{this.state.selectedAnswer && !answeredCorrect && selectedAnswerCurrent &&
-					<p>Incorrect!</p>
-				}
+			<div className='yarb'>
+				<Paper style={style} zDepth={5}>
+					<div className='trivia'>
+						<h3>Trivia</h3>
+						<div className='question'>
+							{question}
+						</div>
+						<div className='answers'>
+							{answers}
+						</div>
+						{answeredCorrect &&
+							<p>Correct!</p>
+						}
+						{this.state.selectedAnswer && !answeredCorrect && selectedAnswerCurrent &&
+							<p>Incorrect!</p>
+						}
+					</div>
+				</Paper>
 			</div>
 		);
 	}

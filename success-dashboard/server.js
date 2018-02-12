@@ -6,6 +6,7 @@ const dbConnection = require('./db') // loads our connection to the mongo databa
 const passport = require('./passport');
 const request = require('request');
 const path = require('path');
+const ToDo = require('./db/models/todo.js');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -45,11 +46,6 @@ app.get('/news', (req, res) => {
 	});
 });
 
-app.get('/tech', (req, res) => {
-	request.get('https://medium.com/topic/technology', (err, response, body) => {
-		if (err) throw err;
-
-		res.send(body);
 
 app.get('/getTodos', (req, res) => {
 	ToDo.find((err, docs) => {
@@ -76,7 +72,6 @@ app.delete('/deleteTodo/:todo', (req, res) => {
 		});
 	});
 });
-
 
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./public/index.html"));

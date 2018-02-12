@@ -10,6 +10,7 @@ import {
 } from 'material-ui/Table';
 import TextField from 'material-ui/TextField';
 import Toggle from 'material-ui/Toggle';
+import Paper from 'material-ui/Paper';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
@@ -55,9 +56,7 @@ const tableData = [
   },
 ];
 
-/**
- * A more complex example, allowing the table height to be set, and key boolean properties to be toggled.
- */
+
 export default class NotesTable extends Component {
   state = {
     fixedHeader: true,
@@ -85,60 +84,7 @@ export default class NotesTable extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <Table
-          height={this.state.height}
-          fixedHeader={this.state.fixedHeader}
-          fixedFooter={this.state.fixedFooter}
-          selectable={this.state.selectable}
-          multiSelectable={this.state.multiSelectable}
-        >
-          <TableHeader
-            displaySelectAll={this.state.showCheckboxes}
-            adjustForCheckbox={this.state.showCheckboxes}
-            enableSelectAll={this.state.enableSelectAll}
-          >
-            <TableRow>
-              <TableHeaderColumn colSpan="3" tooltip="Super Header" style={{textAlign: 'center'}}>
-                Super Header
-              </TableHeaderColumn>
-            </TableRow>
-            <TableRow>
-              <TableHeaderColumn tooltip="The ID">ID</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Name">Name</TableHeaderColumn>
-              <TableHeaderColumn tooltip="The Status">Status</TableHeaderColumn>
-            </TableRow>
-          </TableHeader>
-          <TableBody
-            displayRowCheckbox={this.state.showCheckboxes}
-            deselectOnClickaway={this.state.deselectOnClickaway}
-            showRowHover={this.state.showRowHover}
-            stripedRows={this.state.stripedRows}
-          >
-            {tableData.map( (row, index) => (
-              <TableRow key={index}>
-                <TableRowColumn>{index}</TableRowColumn>
-                <TableRowColumn>{row.name}</TableRowColumn>
-                <TableRowColumn>{row.status}</TableRowColumn>
-              </TableRow>
-              ))}
-          </TableBody>
-          <TableFooter
-            adjustForCheckbox={this.state.showCheckboxes}
-          >
-            <TableRow>
-              <TableRowColumn>ID</TableRowColumn>
-              <TableRowColumn>Name</TableRowColumn>
-              <TableRowColumn>Status</TableRowColumn>
-            </TableRow>
-            <TableRow>
-              <TableRowColumn colSpan="3" style={{textAlign: 'center'}}>
-                Super Footer
-              </TableRowColumn>
-            </TableRow>
-          </TableFooter>
-        </Table>
-
-        <div style={styles.propContainer}>
+      <Paper style={styles.propContainer}>
           <h3>Table Properties</h3>
           <TextField
             floatingLabelText="Table Body Height"
@@ -201,7 +147,59 @@ export default class NotesTable extends Component {
             onToggle={this.handleToggle}
             defaultToggled={this.state.showCheckboxes}
           />
-        </div>
+        </Paper>
+
+        <Paper>
+          <Table
+            height={this.state.height}
+            fixedHeader={this.state.fixedHeader}
+            fixedFooter={this.state.fixedFooter}
+            selectable={this.state.selectable}
+            multiSelectable={this.state.multiSelectable}
+          >
+            <TableHeader
+              displaySelectAll={this.state.showCheckboxes}
+              adjustForCheckbox={this.state.showCheckboxes}
+              enableSelectAll={this.state.enableSelectAll}
+            >
+              <TableRow>
+                <TableHeaderColumn colSpan="3" tooltip="Super Header" style={{textAlign: 'center'}}>
+                  <h4>My Notes</h4>
+                </TableHeaderColumn>
+              </TableRow>
+              <TableRow>
+                <TableHeaderColumn tooltip="The ID">ID</TableHeaderColumn>
+                <TableHeaderColumn tooltip="The Name">Name</TableHeaderColumn>
+                <TableHeaderColumn tooltip="The Status">Status</TableHeaderColumn>
+              </TableRow>
+            </TableHeader>
+            <TableBody
+              displayRowCheckbox={this.state.showCheckboxes}
+              deselectOnClickaway={this.state.deselectOnClickaway}
+              showRowHover={this.state.showRowHover}
+              stripedRows={this.state.stripedRows}
+            >
+              {tableData.map( (row, index) => (
+                <TableRow key={index}>
+                  <TableRowColumn>{index}</TableRowColumn>
+                  <TableRowColumn>{row.name}</TableRowColumn>
+                  <TableRowColumn>{row.status}</TableRowColumn>
+                </TableRow>
+                ))}
+            </TableBody>
+            <TableFooter
+              adjustForCheckbox={this.state.showCheckboxes}
+            >
+              <TableRow>
+                <TableRowColumn>ID</TableRowColumn>
+                <TableRowColumn>Name</TableRowColumn>
+                <TableRowColumn>Status</TableRowColumn>
+              </TableRow>
+              <TableRow>
+              </TableRow>
+            </TableFooter>
+          </Table>
+        </Paper>
       </MuiThemeProvider>
     );
   }

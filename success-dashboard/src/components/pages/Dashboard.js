@@ -5,7 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import GoodVibesNews from '../MainDash/GoodVibesNews.js';
 import TechArticles from '../MainDash/TechArticles.js';
 import MeetupFeed from '../MainDash/MeetupFeed.js';
-import {ToDoList} from '../MainDash/ToDoList.js';
+import ToDoList from '../MainDash/ToDoList.js';
 import CreateNote from '../MainDash/CreateNote.js';
 
 export default class Dashboard extends React.Component {
@@ -14,7 +14,8 @@ export default class Dashboard extends React.Component {
 
     this.state = {
       trivia: [],
-      news: []
+      news: [],
+      todos: []
     }
 
     this.refresh = this.refresh.bind(this);
@@ -40,6 +41,15 @@ export default class Dashboard extends React.Component {
     .catch((err) => {
 
     });
+
+    API.getTodos()
+    .then((res) => {
+      console.log('todo res: ', res);
+      this.setState({todos: res.data});
+    })
+    .catch((err) => {
+
+    })
   }
 
   render() {
@@ -52,7 +62,7 @@ export default class Dashboard extends React.Component {
               <MeetupFeed />
             </div>
             <div style={{justifyContent: 'center', flexDirection: 'row', display: 'flex'}}>
-              <ToDoList />
+              <ToDoList todos={this.state.todos} />
               <CreateNote />
             </div>
           </MuiThemeProvider>

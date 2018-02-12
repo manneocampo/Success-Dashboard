@@ -6,6 +6,7 @@ const dbConnection = require('./db') // loads our connection to the mongo databa
 const passport = require('./passport');
 const request = require('request');
 const path = require('path');
+const ToDo = require('./db/models/todo.js');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -50,6 +51,30 @@ app.get('/tech', (req, res) => {
 		if (err) throw err;
 
 		res.send(body);
+
+app.get('/getTodos', (req, res) => {
+	ToDo.find((err, docs) => {
+		res.send(docs);
+	});
+});
+
+app.post('/createTodo', (req, res) => {
+	ToDo.create({todo: req.body.newTodo, description: req.body.description}, function (err, doc) {
+		if (err) throw err;
+
+		ToDo.find((err, docs) => {
+			res.send(docs);
+		});
+	});
+});
+
+app.delete('/deleteTodo/:todo', (req, res) => {
+	ToDo.deleteOne({todo: req.params.todo}, (err, docs) => {
+		if (err) console.log(err);
+
+		ToDo.find((err, docs) => {
+			res.send(docs);
+		});
 	});
 });
 

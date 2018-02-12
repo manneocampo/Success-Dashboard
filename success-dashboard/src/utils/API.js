@@ -9,20 +9,5 @@ export const API = {
 
   getNews: function() {
     return axios.get('/news');
-  },
-
-  getTodos: function() {
-    return axios.get('/getTodos');
-  },
-
-  createTodo: function(newTodo, description) {
-    return axios.post('/createTodo', {
-      newTodo,
-      description
-    });
-  },
-
-  deleteTodo: function(todo) {
-    return axios.delete(`/deleteTodo/${todo}`);
   }
 };

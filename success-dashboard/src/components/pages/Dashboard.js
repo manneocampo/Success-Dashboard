@@ -3,7 +3,7 @@ import Trivia from '../MainDash/Trivia';
 import { API } from '../../utils/API';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import GoodVibesNews from '../MainDash/GoodVibesNews.js';
-import {TechArticles} from '../MainDash/TechArticles.js';
+import TechArticles from '../MainDash/TechArticles.js';
 import MeetupFeed from '../MainDash/MeetupFeed.js';
 import {ToDoList} from '../MainDash/ToDoList.js';
 import CreateNote from '../MainDash/CreateNote.js';

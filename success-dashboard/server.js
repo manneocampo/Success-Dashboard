@@ -45,6 +45,14 @@ app.get('/news', (req, res) => {
 	});
 });
 
+app.get('/tech', (req, res) => {
+	request.get('https://medium.com/topic/technology', (err, response, body) => {
+		if (err) throw err;
+
+		res.send(body);
+	});
+});
+
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./public/index.html"));
 });

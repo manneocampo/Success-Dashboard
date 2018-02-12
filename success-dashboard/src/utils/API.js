@@ -5,5 +5,9 @@ export const API = {
     console.log('trivia')
 
     return axios.get('/trivia');
+  },
+
+  getNews: function() {
+    return axios.get('/news');
   }
 };

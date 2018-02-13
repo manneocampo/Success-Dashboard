@@ -7,7 +7,7 @@ const style = {
   margin: 20,
   textAlign: 'center',
   display: 'inline-block',
-};
+  };
 
 export default class MeetupFeed extends React.Component {
   constructor(props) {

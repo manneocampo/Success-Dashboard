@@ -46,7 +46,6 @@ app.get('/news', (req, res) => {
 	});
 });
 
-
 app.get('/getTodos', (req, res) => {
 	ToDo.find((err, docs) => {
 		res.send(docs);

@@ -2,20 +2,13 @@ import React from 'react';
 import Paper from 'material-ui/Paper';
 
 const style = {
-  paperStyle: {
-    height: 500,
-    width: 'calc(33% - 40px)',
-    margin: 20,
-    textAlign: 'center',
-    display: 'inline-block',
-  },
-  titleStyle:{
-    display: "inline-block",
-    color: "teal",
-    "font-weight": "bolder",
-    "letter-spacing": "5px",
-  }
+  height: 300,
+  width: 300,
+  margin: 20,
+  textAlign: 'center',
+  display: 'inline-block',
 };
+
 
 export default class MeetupFeed extends React.Component {
   constructor(props) {
@@ -50,8 +43,8 @@ export default class MeetupFeed extends React.Component {
   render() {
     const { error, isLoaded, items } = this.state;
 		    if (error) {
-		      return <Paper style={style.paperStyle} zDepth={5} rounded={false}>
-		      	<h3 style={style.titleStyle}>Meetup Feed Error: {error.message}</h3>
+		      return <Paper style={style} zDepth={5} rounded={false}>
+		      	<h3>Meetup Feed Error: {error.message}</h3>
 		      	</Paper>;
 		    } else if (!isLoaded) {
 		      return <Paper style={style} zDepth={5} rounded={false}>
@@ -77,7 +70,6 @@ export default class MeetupFeed extends React.Component {
 
 
 
-    // fetch("https://api.meetup.com1/find/groups2?zip=11211&radius=1&category=253&order=members4")
 
 
 
@@ -121,3 +113,6 @@ export default class MeetupFeed extends React.Component {
 // 		)
 // 	}
 // };
+
+
+

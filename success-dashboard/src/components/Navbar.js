@@ -1,18 +1,16 @@
 import React from 'react';
+import {StyleNavbar} from './styled_components/Navbar';
 import { Link } from 'react-router-dom';
+
+//Note the Navbar was done as an example to demonstrate styled-components but we can switch this out for Bootstrap or something else later if we want.
 
 const Navbar = () => {
 	return (
-	  <nav>
-	    <div class="nav-wrapper teal">
-	      <a href="#" class="brand-logo right">Student Success Dashboard</a>
-	      <ul id="nav-mobile" class="left hide-on-med-and-down">
-	        <li><a href="/app/dashboard">Home</a></li>
-	        <li><a href="/app/notes">Notes</a></li>
-	        <li><a href="/">Logout</a></li>
-	      </ul>
-	    </div>
-	  </nav>
+		<StyleNavbar>
+			<li><Link to='/app/dashboard'>Home</Link></li>
+			<li><Link to='/app/notes'>Notes</Link></li>
+			<li><Link to='/'>Logout</Link></li>
+		</StyleNavbar>
 		)
 };
 

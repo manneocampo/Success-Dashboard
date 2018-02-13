@@ -13,9 +13,9 @@ const style = {
   },
   titleStyle: {
     display: "inline-block",
-    color: "white",
+    color: "teal",
     "font-weight": "bolder",
-    border: "5px dashed white",
+    border: "5px dashed teal",
     "letter-spacing": "5px",
     transform: "rotate(-7deg)"
   },

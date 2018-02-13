@@ -15,7 +15,8 @@ export default class Dashboard extends React.Component {
     this.state = {
       trivia: [],
       news: [],
-      todos: []
+      todos: [],
+      articles: []
     }
 
     this.refresh = this.refresh.bind(this);
@@ -50,6 +51,14 @@ export default class Dashboard extends React.Component {
     .catch((err) => {
 
     })
+
+    API.getArticles()
+    .then((res) => {
+      this.setState({articles: res.data.articles});
+    })
+    .catch((err) => {
+
+    });
   }
 
   render() {
@@ -58,7 +67,7 @@ export default class Dashboard extends React.Component {
             <Trivia refresh={this.refresh} data={this.state.trivia} />
             <div style={{justifyContent: 'center', flexDirection: 'row', display: 'flex'}}>
               <GoodVibesNews news={this.state.news} />
-              <TechArticles />
+              <TechArticles articles={this.state.articles} />
               <MeetupFeed />
             </div>
             <div style={{justifyContent: 'center', flexDirection: 'row', display: 'flex'}}>

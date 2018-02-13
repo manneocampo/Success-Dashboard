@@ -1,5 +1,6 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
+import axios from 'axios';
 
 const style = {
   height: 300,
@@ -25,7 +26,14 @@ export default class CreateNote extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     console.log(this.state.value);
-  }
+          axios
+        .post('/createNote', {
+          note: this.state.value
+        })
+        .then(response => {
+          console.log(response)
+        })
+    }
 
   render() {
     return (

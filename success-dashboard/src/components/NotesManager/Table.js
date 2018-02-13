@@ -12,7 +12,8 @@ import TextField from 'material-ui/TextField';
 import Toggle from 'material-ui/Toggle';
 import Paper from 'material-ui/Paper';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
+import axios from 'axios';
+import moment from 'moment';
 
 const styles = {
   propContainer: {
@@ -25,59 +26,46 @@ const styles = {
   },
 };
 
-const tableData = [
-  {
-    name: 'John Smith',
-    status: 'Employed',
-  },
-  {
-    name: 'Randal White',
-    status: 'Unemployed',
-  },
-  {
-    name: 'Stephanie Sanders',
-    status: 'Employed',
-  },
-  {
-    name: 'Steve Brown',
-    status: 'Employed',
-  },
-  {
-    name: 'Joyce Whitten',
-    status: 'Employed',
-  },
-  {
-    name: 'Samuel Roberts',
-    status: 'Employed',
-  },
-  {
-    name: 'Adam Moore',
-    status: 'Employed',
-  },
-];
-
 
 export default class NotesTable extends Component {
-  state = {
-    fixedHeader: true,
-    fixedFooter: false,
-    stripedRows: false,
-    showRowHover: true,
-    selectable: true,
-    multiSelectable: false,
-    enableSelectAll: false,
-    deselectOnClickaway: true,
-    showCheckboxes: false,
-    height: '300px',
+
+  constructor(props){
+    super(props);
+
+    this.state={
+      fixedHeader: true,
+      fixedFooter: false,
+      stripedRows: false,
+      showRowHover: true,
+      selectable: true,
+      multiSelectable: false,
+      enableSelectAll: false,
+      deselectOnClickaway: true,
+      showCheckboxes: false,
+      height: '300px',
+      tableData: []
+    };
+    this.handleToggle=this.handleToggle.bind(this);
+    this.handleChange=this.handleChange.bind(this);
+
   };
 
-  handleToggle = (event, toggled) => {
+
+  componentDidMount() {
+    axios.get('/getNotes').then(response => {
+      console.log(response.data);
+      this.setState({tableData: response.data});
+    })
+  }
+
+
+  handleToggle(event, toggled) {
     this.setState({
       [event.target.name]: toggled,
     });
   };
 
-  handleChange = (event) => {
+  handleChange(event) {
     this.setState({height: event.target.value});
   };
 
@@ -169,8 +157,8 @@ export default class NotesTable extends Component {
               </TableRow>
               <TableRow>
                 <TableHeaderColumn tooltip="The ID">ID</TableHeaderColumn>
-                <TableHeaderColumn tooltip="The Name">Name</TableHeaderColumn>
-                <TableHeaderColumn tooltip="The Status">Status</TableHeaderColumn>
+                <TableHeaderColumn tooltip="The Date">Date</TableHeaderColumn>
+                <TableHeaderColumn tooltip="The Note">Note</TableHeaderColumn>
               </TableRow>
             </TableHeader>
             <TableBody
@@ -179,24 +167,17 @@ export default class NotesTable extends Component {
               showRowHover={this.state.showRowHover}
               stripedRows={this.state.stripedRows}
             >
-              {tableData.map( (row, index) => (
-                <TableRow key={index}>
-                  <TableRowColumn>{index}</TableRowColumn>
-                  <TableRowColumn>{row.name}</TableRowColumn>
-                  <TableRowColumn>{row.status}</TableRowColumn>
+              {this.state.tableData.map( (note, index) => (
+                <TableRow key={note._id}>
+                  <TableRowColumn>{note._id}</TableRowColumn>
+                  <TableRowColumn>{moment(note.noteCreated).format('MM/DD/YYYY')}</TableRowColumn>
+                  <TableRowColumn>{note.note}</TableRowColumn>
                 </TableRow>
                 ))}
             </TableBody>
             <TableFooter
               adjustForCheckbox={this.state.showCheckboxes}
             >
-              <TableRow>
-                <TableRowColumn>ID</TableRowColumn>
-                <TableRowColumn>Name</TableRowColumn>
-                <TableRowColumn>Status</TableRowColumn>
-              </TableRow>
-              <TableRow>
-              </TableRow>
             </TableFooter>
           </Table>
         </Paper>

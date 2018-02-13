@@ -3,14 +3,22 @@ import Paper from 'material-ui/Paper';
 import { API } from '../../utils/API';
 
 const style = {
-  height: 500,
-  width: 'calc(50% - 40px)',
-  margin: 20,
-  padding: '25px 0 0 75px',
-  display: 'inline-block',
-  overflow: 'auto',
-  backgroundImage:'url("https://static.vecteezy.com/system/resources/previews/000/098/954/non_2x/notebook-paper-background-vector.jpg")',
-  "background-size": 'cover'
+  paperStyle: {
+    height: 500,
+    width: 'calc(50% - 40px)',
+    margin: 20,
+    padding: '25px 0 0 75px',
+    display: 'inline-block',
+    overflow: 'auto',
+    backgroundImage:'url("https://static.vecteezy.com/system/resources/previews/000/098/954/non_2x/notebook-paper-background-vector.jpg")',
+    "background-size": 'cover'
+  },
+  titleStyle: {
+    display: "inline-block",
+    color: "teal",
+    "font-weight": "bolder",
+    "letter-spacing": "5px",
+  },
 };
 
 export default class ToDoList extends React.Component {
@@ -63,8 +71,8 @@ export default class ToDoList extends React.Component {
     render() {
       let todos = this.state.todos ? this.state.todos : this.props.todos;
       return (
-        <Paper style={style} zDepth={5} rounded={false}>
-          <h3>Todo list</h3>
+        <Paper style={style.paperStyle} zDepth={5} rounded={false}>
+          <h3 style={style.titleStyle}>Todo list</h3>
           <div>
             <label for='todo'>New Todo</label>
         	  <input name='todo' onChange={(e) => {this.handleInputChange(e, true)}} type='text' placeholder='New todo...' />

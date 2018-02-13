@@ -19,11 +19,20 @@ import React from 'react';
 import Paper from 'material-ui/Paper';
 
 const style = {
-  height: 300,
-  width: 'calc(33% - 40px)',
-  margin: 20,
-  textAlign: 'center',
-  display: 'inline-block',
+  paperStyle: {
+    height: 300,
+    width: 'calc(33% - 40px)',
+    margin: 20,
+    textAlign: 'center',
+    display: 'inline-block',
+  },
+  titleStyle: {
+    display: "inline-block",
+    color: "teal",
+    "font-weight": "bolder",
+    "letter-spacing": "5px",
+  }
+
 };
 
 export default class TechArticles extends React.Component {
@@ -38,8 +47,8 @@ export default class TechArticles extends React.Component {
   render() {
     console.log('testing: ');
     return (
-      <Paper style={style} zDepth={5} rounded={false}>
-        <h3>Tech News</h3>
+      <Paper style={style.paperStyle} zDepth={5} rounded={false}>
+        <h3 style={style.titleStyle}>Tech News</h3>
 
     	</Paper>
     );

@@ -2,12 +2,20 @@ import React from 'react';
 import Paper from 'material-ui/Paper';
 
 const style = {
-  height: 300,
-  width: 'calc(33% - 40px)',
-  margin: 20,
-  textAlign: 'center',
-  display: 'inline-block',
-  };
+  paperStyle: {
+    height: 300,
+    width: 'calc(33% - 40px)',
+    margin: 20,
+    textAlign: 'center',
+    display: 'inline-block',
+  },
+  titleStyle:{
+    display: "inline-block",
+    color: "teal",
+    "font-weight": "bolder",
+    "letter-spacing": "5px",
+  }
+};
 
 export default class MeetupFeed extends React.Component {
   constructor(props) {
@@ -42,8 +50,8 @@ export default class MeetupFeed extends React.Component {
   render() {
     const { error, isLoaded, items } = this.state;
 		    if (error) {
-		      return <Paper style={style} zDepth={5} rounded={false}>
-		      	<h3>Meetup Feed Error: {error.message}</h3>
+		      return <Paper style={style.paperStyle} zDepth={5} rounded={false}>
+		      	<h3 style={style.titleStyle}>Meetup Feed Error: {error.message}</h3>
 		      	</Paper>;
 		    } else if (!isLoaded) {
 		      return <Paper style={style} zDepth={5} rounded={false}>

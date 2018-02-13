@@ -2,6 +2,20 @@
 # yarn lockfile v1
 
 
+"@types/react-dom@^0.14.23":
+  version "0.14.23"
+  resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-0.14.23.tgz#cecfcfad754b4c2765fe5d29b81b301889ad6c2e"
+  dependencies:
+    "@types/react" "*"
+
+"@types/react@*":
+  version "16.0.36"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.36.tgz#ceb5639013bdb92a94147883052e69bb2c22c69b"
+
+"@types/react@^15.0.21":
+  version "15.6.12"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-15.6.12.tgz#5bfaf54b48bbb40f332f0583348acee5d3f6c032"
+
 abab@^1.0.3:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/abab/-/abab-1.0.4.tgz#5faad9c2c07f60dd76770f71cf025b62a63cfd4e"
@@ -2804,6 +2818,15 @@ flat-cache@^1.2.1:
 flatten@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
+
+flexbox-react@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/flexbox-react/-/flexbox-react-4.4.0.tgz#35ebd3eb108bbda1b2760df4968aabc7061f5f33"
+  dependencies:
+    styled-components "^2.0.0"
+  optionalDependencies:
+    "@types/react" "^15.0.21"
+    "@types/react-dom" "^0.14.23"
 
 follow-redirects@^1.2.5:
   version "1.4.1"
@@ -6710,6 +6733,19 @@ style-loader@^0.20.1:
   dependencies:
     loader-utils "^1.1.0"
     schema-utils "^0.4.3"
+
+styled-components@^2.0.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-2.4.0.tgz#086d0fd483d54638837fca3ea546a030b94adf75"
+  dependencies:
+    buffer "^5.0.3"
+    css-to-react-native "^2.0.3"
+    fbjs "^0.8.9"
+    hoist-non-react-statics "^1.2.0"
+    is-plain-object "^2.0.1"
+    prop-types "^15.5.4"
+    stylis "^3.4.0"
+    supports-color "^3.2.3"
 
 styled-components@^3.1.5:
   version "3.1.6"

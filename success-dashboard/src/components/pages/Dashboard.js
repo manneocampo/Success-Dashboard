@@ -1,11 +1,9 @@
 import React from 'react';
 import Trivia from '../MainDash/Trivia';
-
 import { API } from '../../utils/API';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
 import GoodVibesNews from '../MainDash/GoodVibesNews.js';
-import {TechArticles} from '../MainDash/TechArticles.js';
+import TechArticles from '../MainDash/TechArticles.js';
 import MeetupFeed from '../MainDash/MeetupFeed.js';
 import ToDoList from '../MainDash/ToDoList.js';
 import CreateNote from '../MainDash/CreateNote.js';
@@ -56,7 +54,6 @@ export default class Dashboard extends React.Component {
 
   render() {
     return (
-        <div>
           <MuiThemeProvider>
             <Trivia refresh={this.refresh} data={this.state.trivia} />
             <div style={{justifyContent: 'center', flexDirection: 'row', display: 'flex'}}>
@@ -69,7 +66,6 @@ export default class Dashboard extends React.Component {
               <CreateNote />
             </div>
           </MuiThemeProvider>
-        </div>
   	);
   }
 };

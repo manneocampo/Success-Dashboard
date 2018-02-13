@@ -2,16 +2,38 @@ import React from 'react';
 import Paper from 'material-ui/Paper';
 
 const style = {
-  height: 300,
-  width: 300,
-  margin: 20,
-  textAlign: 'center',
-  display: 'inline-block',
+  paperStyle: {
+    height: 500,
+    width: 'calc(33% - 40px)',
+    margin: 20,
+    textAlign: 'center',
+    display: 'inline-block',
+  },
+  titleStyle: {
+    display: "inline-block",
+    color: "teal",
+    "font-weight": "bolder",
+    "letter-spacing": "5px",
+  }
+
 };
-
-export const TechArticles = () => (
-    <Paper style={style} zDepth={5} rounded={false}>
-    	<h2>TechArticles</h2>
-  	</Paper>
-);
-
+//da2ac971785e4eaa8fbe780f5927876e
+export default class TechArticles extends React.Component {
+  
+  render() {
+    console.log('testing: ', this.props);
+    return (
+      <Paper style={style.paperStyle} zDepth={5} rounded={false}>
+        <h3 style={style.titleStyle}>Tech News</h3>
+        <div>
+          {this.props.articles.map((article, i) => (
+            <div className='article'>
+              <h5>{article.source.name}</h5>
+              <a href={article.url}><p>{article.title}</p></a>
+            </div>
+          ))}
+        </div>
+    	</Paper>
+    );
+  }
+}

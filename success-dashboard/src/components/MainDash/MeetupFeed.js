@@ -3,7 +3,7 @@ import Paper from 'material-ui/Paper';
 
 const style = {
   paperStyle: {
-    height: 300,
+    height: 500,
     width: 'calc(33% - 40px)',
     margin: 20,
     textAlign: 'center',

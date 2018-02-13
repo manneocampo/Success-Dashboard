@@ -3,7 +3,7 @@ import Paper from 'material-ui/Paper';
 
 const style = {
   paperStyle: {
-    height: 300,
+    height: 500,
     width: 'calc(33% - 40px)',
     margin: 20,
     textAlign: 'center',
@@ -20,7 +20,14 @@ const style = {
     transform: "rotate(-7deg)"
   },
   newsItemStyle: {
-
+    display: "flex",
+    width: "50%",
+    margin: "5px 0px 0px 10px"
+  },
+  newsItemTextStyle: {
+    color: "white",
+    "font-weight": "bolder",
+    "font-size": "19px"
   }
 };
 
@@ -40,7 +47,7 @@ export default class GoodVibesNews extends React.Component {
         <h3 style={style.titleStyle}>Feel Good News</h3>
       	{this.props.news.map((story, i) => (
           <div style={style.newsItemStyle}>
-            <a target='_blank' href={story.data.url}><p>{story.data.title}</p></a>
+            <a style={style.newsItemTextStyle} target='_blank' href={story.data.url}><p>{story.data.title}</p></a>
           </div>
         ))}
     	</Paper>

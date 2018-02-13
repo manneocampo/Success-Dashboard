@@ -32,7 +32,7 @@ app.use('/auth', require('./auth'));
 
 app.get('/trivia', (req, res) => {
 	request.get('https://opentdb.com/api.php?amount=1&category=18&difficulty=easy&type=multiple', (err, response, body) => {
-		if (err) throw err;
+		if (err) console.log('err123: ', err);
 
 		res.send(body);
 	})

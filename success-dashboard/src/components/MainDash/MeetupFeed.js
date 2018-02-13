@@ -7,8 +7,7 @@ const style = {
   margin: 20,
   textAlign: 'center',
   display: 'inline-block',
-};
-
+  };
 
 export default class MeetupFeed extends React.Component {
   constructor(props) {
@@ -70,6 +69,7 @@ export default class MeetupFeed extends React.Component {
 
 
 
+    // fetch("https://api.meetup.com1/find/groups2?zip=11211&radius=1&category=253&order=members4")
 
 
 

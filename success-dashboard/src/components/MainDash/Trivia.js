@@ -4,11 +4,21 @@ import FlatButton from 'material-ui/FlatButton';
 import Paper from 'material-ui/Paper';
 
 const style = {
-  height: 300,
-  width: '100%',
-  margin: 20,
-  textAlign: 'center',
-  display: 'inline-block',
+  paperStyle: {
+    height: 300,
+    width: '100%',
+    margin: 20,
+    textAlign: 'center',
+    display: 'inline-block',
+    backgroundImage:'url("https://www.toptal.com/designers/subtlepatterns/patterns/circles-and-roundabouts.png")',
+  },
+  titleStyle: {
+    display: "inline-block",
+    color: "teal",
+    "font-weight": "bolder",
+    "letter-spacing": "5px",
+  },
+
 };
 
 export default class Trivia extends React.Component {
@@ -74,9 +84,9 @@ export default class Trivia extends React.Component {
 
 		return (
 			<div className='yarb'>
-				<Paper style={style} zDepth={5}>
+				<Paper style={style.paperStyle} zDepth={5}>
 					<div className='trivia'>
-						<h3>Trivia</h3>
+						<h3 style={style.titleStyle}>Trivia</h3>
 						<div className='question'>
 							{question}
 						</div>

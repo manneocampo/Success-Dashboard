@@ -24,5 +24,9 @@ export const API = {
 
   deleteTodo: function(todo) {
     return axios.delete(`/deleteTodo/${todo}`);
+  },
+
+  getArticles: function() {
+    return axios.get('/techArticles');
   }
 };

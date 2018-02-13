@@ -2,11 +2,14 @@ import React from 'react';
 import Paper from 'material-ui/Paper';
 
 const style = {
-  height: 300,
+  height: 500,
   width: 'calc(50% - 40px)',
   margin: 20,
+  padding: '25px 0 0 75px',
   textAlign: 'center',
   display: 'inline-block',
+  backgroundImage:'url("https://static.vecteezy.com/system/resources/previews/000/098/954/non_2x/notebook-paper-background-vector.jpg")',
+  "background-size": 'cover'
 };
 
 export default class CreateNote extends React.Component {

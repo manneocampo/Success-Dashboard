@@ -9,6 +9,7 @@ const style = {
   margin: 20,
   textAlign: 'center',
   display: 'inline-block',
+  backgroundImage:'url("https://www.toptal.com/designers/subtlepatterns/patterns/circles-and-roundabouts.png")',
 };
 
 export default class Trivia extends React.Component {

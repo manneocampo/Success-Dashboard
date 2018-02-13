@@ -23,6 +23,8 @@ app.use(
 	})
 );
 
+app.use(express.static('./public'));
+
 // ===== Passport ====
 app.use(passport.initialize());
 app.use(passport.session()); // will call the deserializeUser

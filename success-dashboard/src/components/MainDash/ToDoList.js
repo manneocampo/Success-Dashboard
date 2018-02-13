@@ -6,9 +6,11 @@ const style = {
   height: 500,
   width: 'calc(50% - 40px)',
   margin: 20,
-  textAlign: 'center',
+  padding: '25px 0 0 75px',
   display: 'inline-block',
-  overflow: 'auto'
+  overflow: 'auto',
+  backgroundImage:'url("https://static.vecteezy.com/system/resources/previews/000/098/954/non_2x/notebook-paper-background-vector.jpg")',
+  "background-size": 'cover'
 };
 
 export default class ToDoList extends React.Component {

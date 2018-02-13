@@ -7,6 +7,7 @@ const passport = require('./passport');
 const request = require('request');
 const path = require('path');
 const ToDo = require('./db/models/todo.js');
+const Note = require('./db/models/note.js');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -69,6 +70,23 @@ app.delete('/deleteTodo/:todo', (req, res) => {
 		ToDo.find((err, docs) => {
 			res.send(docs);
 		});
+	});
+});
+
+app.post('/createNote', (req, res) => {
+	console.log("sanity");
+	Note.create({note: req.body.note}, function (err, doc) {
+		if (err) throw err;
+
+		ToDo.find((err, docs) => {
+			res.send(docs);
+		});
+	});
+});
+
+app.get('/getNotes', (req, res) => {
+	Note.find((err, docs) => {
+		res.send(docs);
 	});
 });
 

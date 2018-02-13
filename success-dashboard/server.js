@@ -6,8 +6,6 @@ const dbConnection = require('./db') // loads our connection to the mongo databa
 const passport = require('./passport');
 const request = require('request');
 const path = require('path');
-const ToDo = require('./db/models/todo.js');
-const Note = require('./db/models/note.js');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -24,8 +22,6 @@ app.use(
 	})
 );
 
-app.use(express.static('./public'));
-
 // ===== Passport ====
 app.use(passport.initialize());
 app.use(passport.session()); // will call the deserializeUser
@@ -35,69 +31,10 @@ app.use('/auth', require('./auth'));
 
 app.get('/trivia', (req, res) => {
 	request.get('https://opentdb.com/api.php?amount=1&category=18&difficulty=easy&type=multiple', (err, response, body) => {
-		if (err) console.log('err123: ', err);
+		if (err) throw err;
 
 		res.send(body);
 	})
-});
-
-app.get('/techArticles', (req, res) => {
-	request.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=da2ac971785e4eaa8fbe780f5927876e', (err, response, body) => {
-		if (err) console.log(err);
-		console.log('body: ', body);
-		res.send(body);
-	});
-});
-
-app.get('/news', (req, res) => {
-	request.get('https://www.reddit.com//r/aww.json', (err, response, body) => {
-		if (err) throw err;
-
-		res.send(body);
-	});
-});
-
-app.get('/getTodos', (req, res) => {
-	ToDo.find((err, docs) => {
-		res.send(docs);
-	});
-});
-
-app.post('/createTodo', (req, res) => {
-	ToDo.create({todo: req.body.newTodo, description: req.body.description}, function (err, doc) {
-		if (err) throw err;
-
-		ToDo.find((err, docs) => {
-			res.send(docs);
-		});
-	});
-});
-
-app.delete('/deleteTodo/:todo', (req, res) => {
-	ToDo.deleteOne({todo: req.params.todo}, (err, docs) => {
-		if (err) console.log(err);
-
-		ToDo.find((err, docs) => {
-			res.send(docs);
-		});
-	});
-});
-
-app.post('/createNote', (req, res) => {
-	console.log("sanity");
-	Note.create({note: req.body.note}, function (err, doc) {
-		if (err) throw err;
-
-		ToDo.find((err, docs) => {
-			res.send(docs);
-		});
-	});
-});
-
-app.get('/getNotes', (req, res) => {
-	Note.find((err, docs) => {
-		res.send(docs);
-	});
 });
 
 app.get("*", function(req, res) {

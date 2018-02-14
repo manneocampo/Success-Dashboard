@@ -14,7 +14,7 @@ import axios from 'axios';
 const style = {
   backgroundImage:
     `linear-gradient(
-      to top left, #008F7A, #EAECC6`
+      to top left, #008F7A, #EAECC6)`
   };
 export default class App extends Component {
   constructor(props) {

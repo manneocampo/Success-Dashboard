@@ -38,7 +38,11 @@ export default class ToDoList extends React.Component {
       API.createTodo(this.state.newTodo, this.state.description)
       .then((res) => {
         console.log(res);
-        this.setState({todos: res.data});
+        this.setState({
+          todos: res.data,
+          newTodo: '',
+          description: ''
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -61,7 +65,9 @@ export default class ToDoList extends React.Component {
     handleDeleteTodo(todo) {
       API.deleteTodo(todo)
       .then((res) => {
-        this.setState({todos: res.data});
+        this.setState({
+          todos: res.data
+        });
       })
       .catch((err) => {
 
@@ -75,9 +81,9 @@ export default class ToDoList extends React.Component {
           <h3 style={style.titleStyle}>Todo list</h3>
           <div>
             <label for='todo'>New Todo</label>
-        	  <input name='todo' onChange={(e) => {this.handleInputChange(e, true)}} type='text' placeholder='New todo...' />
+        	  <input name='todo' onChange={(e) => {this.handleInputChange(e, true)}} value={this.state.newTodo} type='text' placeholder='New todo...' />
             <label for='description'>Description</label>
-            <input name='description' onChange={(e) => {this.handleInputChange(e)}} type='text' placeholder='New todo description...' />
+            <input name='description' onChange={(e) => {this.handleInputChange(e)}} value={this.state.description} type='text' placeholder='New todo description...' />
             <button  onClick={this.handleNewTodo}>Save</button>
           </div>
           <div>

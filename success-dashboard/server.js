@@ -42,7 +42,7 @@ app.get('/trivia', (req, res) => {
 });
 
 app.get('/techArticles', (req, res) => {
-	request.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=da2ac971785e4eaa8fbe780f5927876e', (err, response, body) => {
+	request.get('https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=da2ac971785e4eaa8fbe780f5927876e', (err, response, body) => {
 		if (err) console.log(err);
 		console.log('body: ', body);
 		res.send(body);

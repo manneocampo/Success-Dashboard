@@ -59,6 +59,7 @@ export default class Dashboard extends React.Component {
     .catch((err) => {
 
     });
+
   }
 
   render() {

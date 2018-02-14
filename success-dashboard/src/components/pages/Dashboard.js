@@ -32,7 +32,7 @@ export default class Dashboard extends React.Component {
       this.setState({trivia: res.data.results})
     })
     .catch((err) => {
-      console.log('err: ', err);
+      console.log('Trivia Error: ', err);
     });
 
     API.getNews()
@@ -40,7 +40,15 @@ export default class Dashboard extends React.Component {
       this.setState({news: res.data.data.children.slice(0, 3)})
     })
     .catch((err) => {
+      console.log('Good News Error: ', err);
+    });
 
+    API.getMeetups()
+    .then((res) => {
+      this.setState({meetup: res.body})
+    })
+    .catch((err) => {
+      console.log('Meetups Error: ', err);
     });
 
     API.getTodos()
@@ -49,7 +57,7 @@ export default class Dashboard extends React.Component {
       this.setState({todos: res.data});
     })
     .catch((err) => {
-
+      console.log('ToDos Error: ', err);
     })
 
     API.getArticles()
@@ -57,7 +65,7 @@ export default class Dashboard extends React.Component {
       this.setState({articles: res.data.articles});
     })
     .catch((err) => {
-
+      console.log('Tech Articles Error: ', err);
     });
   }
 

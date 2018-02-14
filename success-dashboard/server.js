@@ -44,7 +44,7 @@ app.get('/trivia', (req, res) => {
 app.get('/techArticles', (req, res) => {
 	request.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=da2ac971785e4eaa8fbe780f5927876e', (err, response, body) => {
 		if (err) console.log(err);
-		console.log('body: ', body);
+		// console.log('body: ', body);
 		res.send(body);
 	});
 });
@@ -52,10 +52,25 @@ app.get('/techArticles', (req, res) => {
 app.get('/news', (req, res) => {
 	request.get('https://www.reddit.com//r/aww.json', (err, response, body) => {
 		if (err) throw err;
-
 		res.send(body);
 	});
 });
+
+
+app.get('/meetups', (req, res) => {
+	request.get('https://api.meetup.com/find/groups?key=5c494f7b021e603a26228786855b&zip=27703&radius=10&category=34', (err, response, body) => {
+		console.log('Meetup name: ' + JSON.parse(body)[0].name);
+		console.log('Meetup link: ' + JSON.parse(body)[0].link);
+		if (err) throw err;
+			var returndata = [];
+			var parsedata = JSON.parse(body);
+		for (var i = 0; i < parsedata.length; i++) {
+			returndata.push({name: parsedata[i].name, link: parsedata[i].link})
+		}
+		res.json(returndata);
+	});
+});
+
 
 app.get('/getTodos', (req, res) => {
 	ToDo.find((err, docs) => {
@@ -84,7 +99,6 @@ app.delete('/deleteTodo/:todo', (req, res) => {
 });
 
 app.post('/createNote', (req, res) => {
-	console.log("sanity");
 	Note.create({note: req.body.note}, function (err, doc) {
 		if (err) throw err;
 

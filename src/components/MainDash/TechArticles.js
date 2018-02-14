@@ -9,7 +9,8 @@ const style = {
     textAlign: 'center',
     display: 'inline-block',
     backgroundImage:'url("https://ak5.picdn.net/shutterstock/videos/12107555/thumb/1.jpg")',
-    "background-size": "cover"
+    "background-size": "cover",
+    overflow: 'auto'
   },
   titleStyle: {
     display: "inline-block",

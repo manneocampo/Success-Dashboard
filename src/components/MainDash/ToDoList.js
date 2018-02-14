@@ -11,7 +11,8 @@ const style = {
     display: 'inline-block',
     overflow: 'auto',
     backgroundImage:'url("https://static.vecteezy.com/system/resources/previews/000/098/954/non_2x/notebook-paper-background-vector.jpg")',
-    "background-size": 'cover'
+    "background-size": 'cover',
+    overflow: 'auto'
   },
   titleStyle: {
     display: "inline-block",

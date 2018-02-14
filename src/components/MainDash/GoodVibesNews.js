@@ -9,7 +9,8 @@ const style = {
     textAlign: 'center',
     display: 'inline-block',
     backgroundImage:'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6FmWW8zfZjFr2A0Lw8KmGpszEWuYJycCWLYSZyve_BwDsnciwHA")',
-    "background-size": 'cover'
+    "background-size": 'cover',
+    overflow: 'auto'
   },
   titleStyle: {
     display: "inline-block",

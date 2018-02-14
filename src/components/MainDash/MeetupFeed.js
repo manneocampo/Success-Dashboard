@@ -8,6 +8,7 @@ const style = {
     margin: 20,
     textAlign: 'center',
     display: 'inline-block',
+    overflow: 'auto'
   },
   titleStyle:{
     display: "inline-block",

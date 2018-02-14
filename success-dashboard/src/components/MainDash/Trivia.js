@@ -10,7 +10,8 @@ const style = {
     margin: 20,
     textAlign: 'center',
     display: 'inline-block',
-    backgroundImage:'url("https://www.toptal.com/designers/subtlepatterns/patterns/circles-and-roundabouts.png")',
+    backgroundImage:'url("https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2012/01/Screen-Shot-2012-01-20-at-2.12.17-PM.png")',
+    "background-size": "cover"
   },
   titleStyle: {
     display: "inline-block",
@@ -18,6 +19,11 @@ const style = {
     "font-weight": "bolder",
     "letter-spacing": "5px",
   },
+  triviaText: {
+    color: "rgb(0, 188, 212)",
+    "font-weight": "bolder",
+    "font-size": "25px"
+  }
 
 };
 
@@ -87,17 +93,17 @@ export default class Trivia extends React.Component {
 				<Paper style={style.paperStyle} zDepth={5}>
 					<div className='trivia'>
 						<h3 style={style.titleStyle}>Trivia</h3>
-						<div className='question'>
+						<div style={style.triviaText} className='question'>
 							{question}
 						</div>
-						<div className='answers'>
+						<div style={style.triviaText} className='answers'>
 							{answers}
 						</div>
 						{answeredCorrect &&
-							<p>Correct!</p>
+							<p style={style.triviaText}>Correct!</p>
 						}
 						{this.state.selectedAnswer && !answeredCorrect && selectedAnswerCurrent &&
-							<p>Incorrect!</p>
+							<p style={style.triviaText}>Incorrect!</p>
 						}
 					</div>
 				</Paper>

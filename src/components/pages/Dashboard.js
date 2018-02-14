@@ -16,7 +16,8 @@ export default class Dashboard extends React.Component {
       trivia: [],
       news: [],
       todos: [],
-      articles: []
+      articles: [],
+      meetup: []
     }
 
     this.refresh = this.refresh.bind(this);
@@ -32,7 +33,7 @@ export default class Dashboard extends React.Component {
       this.setState({trivia: res.data.results})
     })
     .catch((err) => {
-      console.log('err: ', err);
+      console.log('Trivia Error: ', err);
     });
 
     API.getNews()
@@ -40,7 +41,15 @@ export default class Dashboard extends React.Component {
       this.setState({news: res.data.data.children.slice(0, 3)})
     })
     .catch((err) => {
+      console.log('Good News Error: ', err);
+    });
 
+    API.getMeetups()
+    .then((res) => {
+      this.setState({meetup: res.data})
+    })
+    .catch((err) => {
+      console.log('Meetups Error: ', err);
     });
 
     API.getTodos()
@@ -49,7 +58,7 @@ export default class Dashboard extends React.Component {
       this.setState({todos: res.data});
     })
     .catch((err) => {
-
+      console.log('ToDos Error: ', err);
     })
 
     API.getArticles()
@@ -57,7 +66,7 @@ export default class Dashboard extends React.Component {
       this.setState({articles: res.data.articles});
     })
     .catch((err) => {
-
+      console.log('Tech Articles Error: ', err);
     });
 
   }
@@ -69,7 +78,7 @@ export default class Dashboard extends React.Component {
             <div style={{justifyContent: 'center', flexDirection: 'row', display: 'flex'}}>
               <GoodVibesNews news={this.state.news} />
               <TechArticles articles={this.state.articles} />
-              <MeetupFeed />
+              <MeetupFeed meetup={this.state.meetup} />
             </div>
             <div style={{justifyContent: 'center', flexDirection: 'row', display: 'flex'}}>
               <ToDoList todos={this.state.todos} />

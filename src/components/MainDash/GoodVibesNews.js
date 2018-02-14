@@ -1,6 +1,5 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
-// import API from '../../utils/API'
 
 const style = {
   paperStyle: {
@@ -10,7 +9,8 @@ const style = {
     textAlign: 'center',
     display: 'inline-block',
     backgroundImage:'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6FmWW8zfZjFr2A0Lw8KmGpszEWuYJycCWLYSZyve_BwDsnciwHA")',
-    "background-size": 'cover'
+    "background-size": 'cover',
+    overflow: 'auto'
   },
   titleStyle: {
     display: "inline-block",
@@ -32,33 +32,26 @@ const style = {
   }
 };
 
-export default class MeetupFeed extends React.Component {
+export default class GoodVibesNews extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      meetup: []
+
     }
   }
-  // componentDidMount(){
-  //   var data = API.getMeetups();
-  //   this.setState('meetup':data);
-  // }
 
   render() {
-    console.log('meetup: ', this.props);
+    console.log('this props: ', this.props);
     return (
       <Paper style={style.paperStyle} zDepth={5} rounded={false}>
-        <h3 style={style.titleStyle}>Local Meetups</h3>
-        {this.state.meetup.map((meetup, i) => {
-          console.log(meetup);
-          return (
+        <h3 style={style.titleStyle}>Feel Good News</h3>
+      	{this.props.news.map((story, i) => (
           <div style={style.newsItemStyle}>
-            <a style={style.newsItemTextStyle} target='_blank' href={meetup.link}><p>{meetup.name}</p></a>
+            <a style={style.newsItemTextStyle} target='_blank' href={story.data.url}><p>{story.data.title}</p></a>
           </div>
-        )}
-      )}
-      </Paper>
+        ))}
+    	</Paper>
     );
   }
 }

@@ -46,6 +46,7 @@ export default class CreateNote extends React.Component {
           console.log(response);
           //Tried to add some fancy stuff to replace alert, but didn't get it working yet. Package 'react-confirm-alert'
           alert("Note added!");
+          this.setState({value: ''});
         })
         //Need to add functionality to clear the field upon submission
     }

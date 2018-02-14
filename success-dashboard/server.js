@@ -24,6 +24,8 @@ app.use(
 	})
 );
 
+app.use(express.static('./public'));
+
 // ===== Passport ====
 app.use(passport.initialize());
 app.use(passport.session()); // will call the deserializeUser
@@ -33,10 +35,18 @@ app.use('/auth', require('./auth'));
 
 app.get('/trivia', (req, res) => {
 	request.get('https://opentdb.com/api.php?amount=1&category=18&difficulty=easy&type=multiple', (err, response, body) => {
-		if (err) throw err;
+		if (err) console.log('err123: ', err);
 
 		res.send(body);
 	})
+});
+
+app.get('/techArticles', (req, res) => {
+	request.get('https://newsapi.org/v2/top-headlines?country=us&apiKey=da2ac971785e4eaa8fbe780f5927876e', (err, response, body) => {
+		if (err) console.log(err);
+		console.log('body: ', body);
+		res.send(body);
+	});
 });
 
 app.get('/news', (req, res) => {

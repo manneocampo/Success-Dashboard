@@ -3,6 +3,30 @@ import { Redirect } from 'react-router-dom';
 import googleButton from '../../images/googlebutton.png';
 import { Link } from 'react-router-dom';
 
+const style = {
+
+  titleStyle: {
+		backgroundImage:`linear-gradient to top left, #008F7A, #EAECC6`,
+		"background-size": "cover",
+    display: "inline-block",
+    color: "teal",
+    "font-weight": "bolder",
+    "letter-spacing": "5px",
+		"font-size": "20px"
+  },
+	loginFormat: {
+		display: "inline-grid",
+		"line-height": "5.5"
+
+	},
+  CreateAccountTextStyle: {
+    color: "teal",
+    "font-weight": "bolder",
+    "font-size": "19px"
+
+  }
+};
+
 class Landing extends Component {
 	constructor(props) {
 		super(props)
@@ -37,30 +61,29 @@ class Landing extends Component {
 			return <Redirect to={{ pathname: this.state.redirectTo }} />
 		} else {
 			return (
-				<div className="LoginForm">
-					<h1>Login form</h1>
+				<div style={style.loginFormat} className="LoginForm">
 					<form>
-						<label htmlFor="username">Username: </label>
+						<label style={style.titleStyle} htmlFor="username">Username: </label>
 						<input
 							type="text"
 							name="username"
 							value={this.state.username}
 							onChange={this.handleChange}
 						/>
-						<label htmlFor="password">Password: </label>
+						<label style={style.titleStyle} htmlFor="password">Password: </label>
 						<input
 							type="password"
 							name="password"
 							value={this.state.password}
 							onChange={this.handleChange}
 						/>
-						<button onClick={this.handleSubmit}>Login</button>
+						<button  className="btn waves-effect waves-light"  onClick={this.handleSubmit}>Login</button>
 					</form>
-					<a href="/auth/google">
+					{/* <a href="/auth/google"> */}
 						{/* <GoogleButton /> */}
-						<img src={googleButton} alt="sign into Google Button" />
-					</a>
-          <Link to='/signup'>Click here to sign up</Link>
+						{/* <img src={googleButton} alt="sign into Google Button" />
+					</a> */}
+        	<Link style={style.CreateAccountTextStyle} to='/signup'>Create Account</Link>
 				</div>
 			)
 		}

@@ -82,7 +82,7 @@ export default class App extends Component {
   render() {
     return (
       <div style={style}>
-        <Route exact path="/" render={() => <Landing _login={this._login} />} />
+        <Route exact path="/login" render={() => <Landing _login={this._login} />} />
         <Route exact path="/signup" render={() => <SignUp />} />
         <Route path='/app' component={Navbar} />
         <Route exact path="/app/dashboard" component={Dashboard} />

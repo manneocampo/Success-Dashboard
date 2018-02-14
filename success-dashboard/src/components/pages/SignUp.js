@@ -2,6 +2,30 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 
+const style = {
+
+  titleStyle: {
+		backgroundImage:`linear-gradient to top left, #008F7A, #EAECC6`,
+		"background-size": "cover",
+    display: "inline-block",
+    color: "teal",
+    "font-weight": "bolder",
+    "letter-spacing": "5px",
+		"font-size": "20px"
+  },
+	signupFormat: {
+		display: "inline-grid",
+		"line-height": "5.5"
+
+	},
+  CreateAccountTextStyle: {
+    color: "teal",
+    "font-weight": "bolder",
+    "font-size": "19px"
+
+  }
+};
+
 export default class Signup extends Component {
 	constructor() {
 		super()
@@ -45,30 +69,29 @@ export default class Signup extends Component {
 			return <Redirect to={{ pathname: this.state.redirectTo }} />
 		}
 		return (
-			<div className="SignupForm">
-				<h1>Signup form</h1>
-				<label htmlFor="username">Username: </label>
+			<div style={style.signupFormat} className="SignupForm">
+				<label style={style.titleStyle} htmlFor="username">Username: </label>
 				<input
 					type="text"
 					name="username"
 					value={this.state.username}
 					onChange={this.handleChange}
 				/>
-				<label htmlFor="password">Password: </label>
+				<label style={style.titleStyle} htmlFor="password">Password: </label>
 				<input
 					type="password"
 					name="password"
 					value={this.state.password}
 					onChange={this.handleChange}
 				/>
-				<label htmlFor="confirmPassword">Confirm Password: </label>
+				<label style={style.titleStyle} htmlFor="confirmPassword">Confirm Password: </label>
 				<input
 					type="password"
 					name="confirmPassword"
 					value={this.state.confirmPassword}
 					onChange={this.handleChange}
 				/>
-				<button onClick={this.handleSubmit}>Sign up</button>
+				<button  className="btn waves-effect waves-light" onClick={this.handleSubmit}>Sign up</button>
 			</div>
 		)
 	}

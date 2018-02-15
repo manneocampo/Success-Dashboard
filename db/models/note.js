@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 mongoose.promise = Promise;
 autoIncrement = require('mongoose-auto-increment');
 
-var connection = mongoose.createConnection("mongodb://localhost/dashboarddb");
+// var connection = mongoose.createConnection("mongodb://localhost/dashboarddb");
 
 autoIncrement.initialize(connection);
 
@@ -27,4 +27,3 @@ NoteSchema.plugin(autoIncrement.plugin, 'Note');
 var Note = connection.model('Note', NoteSchema);
 
 module.exports = Note;
-

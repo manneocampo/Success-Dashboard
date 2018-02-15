@@ -102,7 +102,7 @@ app.post('/createNote', (req, res) => {
 	Note.create({note: req.body.note}, function (err, doc) {
 		if (err) throw err;
 
-		ToDo.find((err, docs) => {
+		Note.find((err, docs) => {
 			res.send(docs);
 		});
 	});

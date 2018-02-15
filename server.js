@@ -100,7 +100,7 @@ app.delete('/deleteTodo/:todo', (req, res) => {
 
 app.post('/createNote', (req, res) => {
 	Note.create({note: req.body.note}, function (err, doc) {
-		if (err) throw err;
+		if (err) res.send(err);
 
 		Note.find((err, docs) => {
 			res.send(docs);

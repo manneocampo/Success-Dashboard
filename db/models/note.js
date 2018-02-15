@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 mongoose.promise = Promise;
 autoIncrement = require('mongoose-auto-increment');
 
-// var connection = mongoose.createConnection("mongodb://localhost/dashboarddb");
+var connection = process.env.MONGODB_URI || mongoose.createConnection("mongodb://localhost/dashboarddb");
 
 autoIncrement.initialize(connection);
 

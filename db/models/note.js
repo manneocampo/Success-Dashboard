@@ -5,7 +5,7 @@ autoIncrement = require('mongoose-auto-increment');
 
 var connection = mongoose.createConnection("mongodb://localhost/dashboarddb");
 
-autoIncrement.initialize(connection);
+autoIncrement.initialize(mongoose.connection);
 
 var NoteSchema = new Schema({
 

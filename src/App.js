@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 // import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'; //Looks like not needed since not used in App.js?
-import './App.css';
 import Navbar from './components/Navbar';
 import Landing from './components/pages/Landing';
 import Dashboard from './components/pages/Dashboard';
@@ -14,7 +13,8 @@ import axios from 'axios';
 const style = {
   backgroundImage:
     `linear-gradient(
-      to top left, #008F7A, #EAECC6)`
+      to top left, #008F7A, #EAECC6)`,
+      backgroundSize: "cover"
   };
 export default class App extends Component {
   constructor(props) {
@@ -27,6 +27,15 @@ export default class App extends Component {
 
 		this._logout = this._logout.bind(this);
 		this._login = this._login.bind(this);
+    this.updateRoute = this.updateRoute.bind(this);
+  }
+
+  updateRoute(newRoute) {
+    console.log('here');
+    console.log('hist: ', this.props.history);
+    let history = this.props.history;
+
+    history.push(newRoute);
   }
 
   componentDidMount() {
@@ -82,7 +91,7 @@ export default class App extends Component {
   render() {
     return (
       <div style={style}>
-        <Route exact path="/" render={() => <Landing _login={this._login} />} />
+        <Route exact path="/" render={() => <Landing _login={this._login} updateRoute={this.updateRoute} />} />
         <Route exact path="/signup" render={() => <SignUp />} />
         <Route path='/app' component={Navbar} />
         <Route exact path="/app/dashboard" component={Dashboard} />

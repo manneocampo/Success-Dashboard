@@ -48,6 +48,9 @@ export default class CreateNote extends React.Component {
           alert("Note added!");
           this.setState({value: ''});
         })
+        .catch((err) => {
+          console.log(err);
+        })
         //Need to add functionality to clear the field upon submission
     }
 

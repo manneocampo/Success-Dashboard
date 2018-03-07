@@ -27,4 +27,3 @@ NoteSchema.plugin(autoIncrement.plugin, 'Note');
 var Note = connection.model('Note', NoteSchema);
 
 module.exports = Note;
-

@@ -34,6 +34,10 @@ const style = {
     "display": "flex",
     "flex-direction": "column",
     "width": "33%"
+  },
+  buttonContainer: {
+    display: "flex",
+    "justify-content": "space-between",
   }
 
 };
@@ -101,7 +105,7 @@ class Landing extends Component {
     						/>
               </div>
 
-              <div>
+              <div style={style.buttonContainer}>
   						<button  className="btn waves-effect waves-light"  onClick={this.handleSubmit}>Login</button>
                   {/* <a href="/auth/google"> */}
       						{/* <GoogleButton /> */}

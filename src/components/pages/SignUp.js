@@ -14,9 +14,12 @@ const style = {
 		"font-size": "20px"
   },
 	signupFormat: {
-		display: "inline-grid",
-		"line-height": "5.5"
-
+    "display": "flex",
+    "flex-direction": "column",
+    "width": "33%",
+    "background-color": "white",
+    "padding": "25px",
+    "margin-top": "50px"
 	},
   CreateAccountTextStyle: {
     color: "teal",
@@ -69,7 +72,7 @@ export default class Signup extends Component {
 			return <Redirect to={{ pathname: this.state.redirectTo }} />
 		}
 		return (
-			<div style={style.signupFormat} className="SignupForm">
+			<div style={style.signupFormat} className="SignupForm row">
 				<label style={style.titleStyle} htmlFor="username">Username: </label>
 				<input
 					type="text"

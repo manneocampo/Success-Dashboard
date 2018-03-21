@@ -33,7 +33,10 @@ const style = {
   centerContainer: {
     "display": "flex",
     "flex-direction": "column",
-    "width": "33%"
+    "width": "33%",
+    "background-color": "white",
+    "padding": "25px",
+    "margin-top": "50px"
   },
   buttonContainer: {
     display: "flex",

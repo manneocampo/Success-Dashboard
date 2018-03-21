@@ -5801,6 +5801,14 @@ react-icons@^2.2.7:
   dependencies:
     react-icon-base "2.1.0"
 
+react-materialize@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/react-materialize/-/react-materialize-2.1.2.tgz#ecceb2d1243c1507b2e1bfc97b215f5e262c52ec"
+  dependencies:
+    classnames "^2.2.5"
+    react "^16.2.0"
+    react-dom "^16.2.0"
+
 react-router-dom@^4.2.2:
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-4.2.2.tgz#c8a81df3adc58bba8a76782e946cbd4eae649b8d"

@@ -10,12 +10,6 @@ import NotFound from './components/NotFound';
 // Utilities
 import axios from 'axios';
 
-const style = {
-  backgroundImage:
-    `linear-gradient(
-      to top left, #008F7A, #EAECC6)`,
-      backgroundSize: "cover"
-  };
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -90,7 +84,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <div style={style}>
+      <div>
         <Route exact path="/" render={() => <Landing _login={this._login} updateRoute={this.updateRoute} />} />
         <Route exact path="/signup" render={() => <SignUp />} />
         <Route path='/app' component={Navbar} />
